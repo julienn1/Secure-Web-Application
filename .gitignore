@@ -1,0 +1,22 @@
+# Terraform State
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform Plugin Cache
+.terraform/*
+
+# Terraform Crash Logs
+*.crash.log
+
+# Terraform Variables
+*.tfvars
+
+# macOS
+.DS_Store
+
+# Private Keys
+*.pem
+*.key
+
+# Environment-Specific Files
+*.env

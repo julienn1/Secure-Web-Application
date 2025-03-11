@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14780\viewh12840\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Scalable and Secure Web Application Infrastructure on AWS\
+\
+This project deploys a highly available and secure web application infrastructure on AWS using Terraform. It demonstrates best practices for infrastructure as code, security, and scalability.\
+\
+## Table of Contents\
+\
+-   [Project Description](#project-description)\
+-   [Architecture](#architecture)\
+-   [Components](#components)\
+-   [Installation](#installation)\
+-   [Usage](#usage)\
+-   [Security Considerations](#security-considerations)\
+-   [Monitoring and Logging](#monitoring-and-logging)\
+-   [Contributing](#contributing)\
+-   [License](#license)\
+\
+## Project Description\
+\
+This project utilizes Terraform to provision a robust AWS environment suitable for hosting a web application. It includes a Virtual Private Cloud (VPC), EC2 instances in an Auto Scaling Group (ASG), a Relational Database Service (RDS) instance, S3 buckets, and comprehensive monitoring and logging.\
+\
+\
+\
+## Components\
+\
+-   **VPC (Virtual Private Cloud):**\
+    -   Custom VPC with public and private subnets across two Availability Zones (AZs).\
+    -   Internet Gateway (IGW) for public subnet access.\
+    -   NAT Gateways in public subnets for private subnet internet access.\
+    -   Route tables and subnet associations.\
+-   **EC2 (Elastic Compute Cloud):**\
+    -   EC2 instances in an Auto Scaling Group (ASG) for scalability and high availability.\
+    -   Application Load Balancer (ALB) to distribute traffic across EC2 instances.\
+    -   Launch template for consistent EC2 configurations.\
+-   **RDS (Relational Database Service):**\
+    -   Managed MySQL database instance in private subnets.\
+    -   Multi-AZ deployment for high availability.\
+    -   AWS Secrets Manager for storing database credentials.\
+-   **S3 (Simple Storage Service):**\
+    -   General purpose S3 bucket for application data and static assets.\
+    -   Dedicated S3 bucket for CloudTrail logs.\
+    -   Versioning, server-side encryption (SSE-KMS), and lifecycle rules.\
+    -   Public access blocked.\
+-   **Monitoring and Logging:**\
+    -   CloudWatch alarms for EC2 and RDS CPU utilization.\
+    -   CloudTrail for audit logging.\
+\
+## Installation\
+\
+1.  **Prerequisites:**\
+    -   AWS CLI configured with appropriate credentials.\
+    -   Terraform installed.\
+2.  **Clone the Repository:**\
+    ```bash\
+    git clone https://github.com/julienn1/Secure-Web-Application\
+    ```\
+3.  **Navigate to the Project Directory:**\
+    ```bash\
+    cd <
+\f1\fs22 \cf2 \CocoaLigature0 Scalable and Secure Web Application
+\f0\fs24 \cf0 \CocoaLigature1 >\
+    ```\
+4.  **Initialize Terraform:**\
+    ```bash\
+    terraform init\
+    ```\
+5.  **Apply Terraform Configuration:**\
+    ```bash\
+    terraform apply\
+    ```\
+\
+## Usage\
+\
+After deployment:\
+\
+-   Access the web application through the ALB's DNS name.\
+-   Database credentials are stored in AWS Secrets Manager (named `rds_credentials`).\
+-   CloudWatch alarms and logs can be viewed in the AWS Management Console.\
+\
+## Security Considerations\
+\
+-   Security groups configured with the principle of least privilege.\
+-   IAM roles used for EC2 instances and other AWS services.\
+-   AWS Secrets Manager for sensitive data.\
+-   S3 buckets with blocked public access and encryption.\
+-   CloudTrail enabled for audit logging.\
+-   RDS instance deployed in private subnets.\
+\
+## Monitoring and Logging\
+\
+-   CloudWatch alarms monitor EC2 and RDS CPU utilization.\
+-   CloudTrail logs API calls to a dedicated S3 bucket.\
+-   CloudWatch logs can be used for application logs (if configured).\
+\
+## Contributing\
+\
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.\
+\
+## License\
+\
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.}
